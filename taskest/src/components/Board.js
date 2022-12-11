@@ -2,8 +2,8 @@ import React, {useState} from "react";
 
 function Board(){
     return(
-        <div>
-            
+        <div className="BoardCard">
+            <h2>Name</h2>
         </div>
     );
 }
