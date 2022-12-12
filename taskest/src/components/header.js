@@ -8,12 +8,6 @@ function Header(){
                 <img src={Logo}/>
                 <h1>TASKEST</h1>
             </div>
-            <div className="menu">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                </ul>
-            </div>
         </div>
     );
 }
