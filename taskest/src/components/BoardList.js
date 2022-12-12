@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import Board from "./Board"
 import database from "../firebase"
+import { NavLink, Route, Switch} from "react-router-dom";
 import { doc, getDoc , onSnapshot} from "firebase/firestore";
 
 
