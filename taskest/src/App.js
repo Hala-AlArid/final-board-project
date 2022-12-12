@@ -1,7 +1,7 @@
 import './App.css';
 import './index.css';
 import React, {useState,useEffect} from "react";
-import Header from "./components/header"
+import Header from "./components/Header"
 import { Route, Switch } from "react-router-dom";
 import Home from "./components/Home";
 import About from "./components/About";

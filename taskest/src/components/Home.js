@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import database from "../firebase"
 import { addDoc , collection} from 'firebase/firestore';
-import Header from "./header"
+import Header from "./Header"
 import NewBoardForm from "./NewBoardForm"
 import BoardList from "./BoardList"
 import Footer from "./footer"
