@@ -1,17 +1,18 @@
 import './App.css';
 import './index.css';
-import React, {useState} from "react";
+import React, {useState,useEffect} from "react";
+import Header from "./components/header"
 import { Route, Switch } from "react-router-dom";
 import Home from "./components/Home";
 import About from "./components/About";
 import NavBar from "./components/NavBar";
-
+import NewBoardForm from "./components/NewBoardForm"
+import BoardList from "./components/BoardList"
+import Footer from "./components/footer"
 
 function App() {
-
   return (
     <div className="App">
-
             <div>
             <NavBar />
                <Switch>

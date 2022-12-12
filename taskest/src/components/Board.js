@@ -1,9 +1,12 @@
 import React, {useState} from "react";
+import database from "../firebase";
 
-function Board(){
+
+function Board({name , color}){
+    
     return(
-        <div className="BoardCard">
-            <h2>Name</h2>
+        <div className="BoardCard" style={{background: color}}>
+            <h2>{name}</h2>
         </div>
     );
 }
