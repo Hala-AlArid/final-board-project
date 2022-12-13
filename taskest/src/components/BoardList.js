@@ -4,43 +4,29 @@ import database from "../firebase"
 import { NavLink, Route, Switch} from "react-router-dom";
 import {  query, where, doc, getDoc , onSnapshot} from "firebase/firestore";
 import { collection, getDocs } from "firebase/firestore";
+const boardCollection = collection(database, "Boards")
 
-  function BoardList(){
-    const [boardList , setBoardLsit] = useState([]);
-    
-
-    // async function getBoardsFromDB (){
-    // const docRef = onSnapshot(doc(database, "Boards", ""), (doc) => {
-    //     if(doc.data() === undefined) return;
-    //     console.log(docRef);
-    //     setBoardLsit([...boardList, doc.data()])
-    // });}
-
-    // window.addEventListener('load', () => { getBoardsFromDB(); });
-
-    // const displayBoards = boardList.map((board)=>{
-    //    return <Board key={board.name} name={board.name} color={board.color}/>
-    // })
-
-    // hala's part
-
-        async function getBoardsFromDB (){
-            const querySnapshot = await getDocs(collection(database, "Boards"));
+function BoardList(){
+    window.addEventListener('load', () => { getBoardsFromDB(); });
+    const [boardList , setBoardList] = useState([]);
+    let arr = []
+    async function getBoardsFromDB (){
+            const querySnapshot = onSnapshot(getDocs(boardCollection));
             querySnapshot.forEach((doc) => {
-                setBoardLsit([...boardList, doc.data()])
-                // console.log(doc.data());
-                console.log(boardList)
+                arr = [...arr , doc.data()]
+                console.log("new obj fetched is  ", doc.data());
+                setBoardList(arr);
             });
-        }
-
-        window.addEventListener('load', () => { getBoardsFromDB(); });
-
+    }
     
+    const boardsToDisplay = boardList.map((board)=>{
+        return <Board key={board.name} name={board.name} color={board.color}/>
+    })
     return(
         <div className="MyBoards">
             <h1>My boards</h1>
         <div className="BoardList">
-            {/* {displayBoards} */}
+            {boardsToDisplay}
         </div>
         </div>
     );

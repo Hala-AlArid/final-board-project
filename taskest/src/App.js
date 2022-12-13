@@ -1,7 +1,7 @@
 import './App.css';
 import './index.css';
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import About from "./components/About";
 import NavBar from "./components/NavBar";
@@ -11,16 +11,13 @@ function App() {
     <div className="App">
             <div>
             <NavBar />
-               <Switch>
-                 <Route exact path="/about">
+            <Routes>
+              <Route exact path="/about"/>
+              </Routes>
                    <About />
-                </Route>
-                 <Route exact path="/">
+                   <Routes><Route exact path="/"/></Routes>
                    <Home />
-                </Route>
-               </Switch>
              </div>
-        
     </div>
   );
 }
