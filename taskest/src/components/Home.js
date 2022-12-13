@@ -4,7 +4,7 @@ import { addDoc , collection} from 'firebase/firestore';
 import Header from "./Header"
 import NewBoardForm from "./NewBoardForm"
 import BoardList from "./BoardList"
-import Footer from "./footer"
+import Footer from "./Footer"
 
 function Home() {
     const tmp = collection(database, "test")
