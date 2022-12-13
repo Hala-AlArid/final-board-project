@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import database from "../firebase"
 import { async } from '@firebase/util';
-import { addDoc , collection} from 'firebase/firestore';
+import { addDoc , doc , collection, setDoc} from 'firebase/firestore';
 function NewBoardForm(){
     const [newBoardData , setNewBoardData] = useState({
         name:"board",
@@ -30,7 +30,7 @@ function NewBoardForm(){
         if(newBoardData.name === "board" || newBoardData.name.length === 0) alert("Invalid board name")
         else{
             try{
-                addDoc(boardCollection, newBoardData)
+                await setDoc(doc(boardCollection, newBoardData.name), newBoardData)
                 alert("New Board was successfully added.")
               }
               catch{
