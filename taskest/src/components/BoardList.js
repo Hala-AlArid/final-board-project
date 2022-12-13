@@ -20,6 +20,7 @@ import { doc, getDoc , onSnapshot} from "firebase/firestore";
     const displayBoards = boardList.map((board)=>{
        return <Board key={board.name} name={board.name} color={board.color}/>
     })
+    console.log(boardList)
     return(
         <div className="MyBoards">
             <h1>My boards</h1>
