@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import database from "../firebase"
 import { async } from '@firebase/util';
-import { setDoc , doc , collection} from 'firebase/firestore';
+import { addDoc , collection} from 'firebase/firestore';
 function NewBoardForm(){
     const [newBoardData , setNewBoardData] = useState({
         name:"board",
@@ -19,7 +19,7 @@ function NewBoardForm(){
     }
     const listOfColors = ["rgb(199, 89, 89)", "rgb(155, 155, 202)", "rgb(100, 146, 100)", "rgb(182, 93, 108)", "rgb(206, 206, 79)"]
     const colorsItems = listOfColors.map((color)=>{
-        return <li><button key={color} name={"color"} value={color} onClick={handlePropertyChange} style={{background: color}}></button></li>
+        return <li><button name={"color"} value={color} onClick={handlePropertyChange} style={{background: color}}></button></li>
     })
 
 
@@ -30,7 +30,7 @@ function NewBoardForm(){
         if(newBoardData.name === "board" || newBoardData.name.length === 0) alert("Invalid board name")
         else{
             try{
-                await setDoc(doc(boardCollection, "Board"), newBoardData);
+                addDoc(boardCollection, newBoardData)
                 alert("New Board was successfully added.")
               }
               catch{
