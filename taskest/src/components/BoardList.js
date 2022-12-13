@@ -9,19 +9,16 @@ const boardCollection = collection(database, "Boards")
 function BoardList(){
     window.addEventListener('load', () => { getBoardsFromDB(); });
     const [boardList , setBoardList] = useState([]);
-    let arr = []
     async function getBoardsFromDB (){
-            const querySnapshot = onSnapshot(getDocs(boardCollection));
-            querySnapshot.forEach((doc) => {
-                arr = [...arr , doc.data()]
-                console.log("new obj fetched is  ", doc.data());
-                setBoardList(arr);
-            });
-    }
-    
+        const querySnapshot = await getDocs(boardCollection);
+        querySnapshot.forEach((doc) => { 
+            setBoardList((prev)=>[...prev,doc.data()]) 
+        });
+    } 
     const boardsToDisplay = boardList.map((board)=>{
         return <Board key={board.name} name={board.name} color={board.color}/>
     })
+    
     return(
         <div className="MyBoards">
             <h1>My boards</h1>
