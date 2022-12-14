@@ -1,0 +1,15 @@
+.NavForm{
+    background-color: rgb(234, 231, 233);
+}
+h2 , h3 , input{
+    color: rgb(144, 0, 101);
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+button{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(57, 0, 48);
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: rgba(107, 0, 75, 0.399); 
+    margin-bottom: 50px;
+}

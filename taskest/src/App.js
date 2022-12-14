@@ -1,4 +1,4 @@
-import './App.css';
+ import './App.css';
 import './index.css';
 import React from "react";
  import { Route, Routes } from "react-router-dom";
@@ -11,14 +11,13 @@ function App() {
   return (
     <div className="App">
             <div>
-            <NavBar />
-             <Routes>
-              <Route exact path="/about"/>
-              </Routes>
- 
-                   <About />
-                   <Routes><Route exact path="/"/></Routes>
-                   <Home />
+              <NavBar />
+              <Routes>
+                <Route exact path="/about"/>
+                </Routes>
+                <About />
+                <Routes><Route exact path="/"/></Routes>
+                <Home />
  
              </div>
     </div>

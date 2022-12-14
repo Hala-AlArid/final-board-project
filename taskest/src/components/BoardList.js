@@ -1,8 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React, { useState} from "react";
+import '../styles/BoardList.css'
 import Board from "./Board"
-import database from "../firebase"
-import { NavLink, Route, Switch} from "react-router-dom";
-import {  query, where, doc, getDoc , onSnapshot} from "firebase/firestore";
+import database from "../firebase" 
 import { collection, getDocs } from "firebase/firestore";
 const boardCollection = collection(database, "Boards")
 
@@ -20,7 +19,7 @@ function BoardList(){
     })
     
     return(
-        <div className="MyBoards">
+        <div className="MyBoards" id="boardList">
             <h1>My boards</h1>
         <div className="BoardList">
             {boardsToDisplay}
