@@ -28,7 +28,7 @@ function NewBoardForm(){
         else{
             try{
                 await setDoc(doc(boardCollection, newBoardData.name), newBoardData)
-                alert("New Board was successfully added.")
+                alert("New Board was successfully added.");
               }
               catch{
                 alert("Error")
