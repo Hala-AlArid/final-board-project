@@ -11,20 +11,21 @@ function BoardList(){
     async function getBoardsFromDB (){
         const querySnapshot = await getDocs(boardCollection);
         querySnapshot.forEach((doc) => { 
+            console.log(doc.data())
             setBoardList((prev)=>[...prev,doc.data()]) 
         });
     } 
     const boardsToDisplay = boardList.map((board)=>{
-        return <Board key={board.name} name={board.name} color={board.color}/>
+        return <Board className="Board" key={board.name} name={board.name} color={board.color}/>
     })
     
     return(
-        <div className="MyBoards" id="boardList">
-            <h1>My boards</h1>
+        <>
+        <h1>My boards</h1>
         <div className="BoardList">
             {boardsToDisplay}
         </div>
-        </div>
+        </>
     );
 }
 

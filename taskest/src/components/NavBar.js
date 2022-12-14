@@ -1,28 +1,33 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import Logo from "../images/logo.png"
-import '../styles/NavBar.css';
-
+import React from "react"; 
+import Container from 'react-bootstrap/Container'; 
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar'; 
+import Offcanvas from 'react-bootstrap/Offcanvas';
 function NavBar() {
+  const expand = "a";
     return (
-      <div className="Header">
-      <div className="logo">
-      <h1>Taskest</h1>
-  </div> 
-  <div className="menu">
-         <ul>
-        <li>
-          <NavLink to="/" exact><h4>Home</h4></NavLink>
-        </li> 
-        <li>
-          <NavLink to="/about" exact><h4>About</h4></NavLink>
-        </li>
-        <li>
-          <NavLink to="/" exact><h4>Team</h4></NavLink>
-        </li>  
-        </ul>
-       </div>
-      </div>
+      <Navbar key={expand} bg="light" expand={expand} className="mb-3">
+      <Container fluid>
+        <Navbar.Brand href="#">Taskest</Navbar.Brand>
+        <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
+        <Navbar.Offcanvas
+          id={`offcanvasNavbar-expand-${expand}`}
+          aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`} >
+          <Offcanvas.Header closeButton>
+            <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
+              Taskest
+            </Offcanvas.Title>
+          </Offcanvas.Header>
+          <Offcanvas.Body>
+            <Nav className="justify-content-end flex-grow-1 pe-3">
+              <Nav.Link href="#action1">Home</Nav.Link>
+              <Nav.Link href="#action2">Completed Tasks</Nav.Link> 
+              <Nav.Link href="#action2">About</Nav.Link> 
+            </Nav> 
+          </Offcanvas.Body>
+        </Navbar.Offcanvas>
+      </Container>
+    </Navbar>
     );
   }
   
