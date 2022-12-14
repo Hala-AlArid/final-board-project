@@ -5,7 +5,7 @@ import {  doc , collection, setDoc} from 'firebase/firestore';
 function NewBoardForm(){
     const [newBoardData , setNewBoardData] = useState({
         name:"board",
-        color:"white"
+        color:"white" 
     })
     function handlePropertyChange(event){
         event.preventDefault();
@@ -16,11 +16,13 @@ function NewBoardForm(){
             [property]: value
         }
         setNewBoardData(newData)
-    }
+    };
+    
     const listOfColors = ["rgb(199, 89, 89)", "rgb(155, 155, 202)", "rgb(100, 146, 100)", "rgb(182, 93, 108)", "rgb(206, 206, 79)"]
     const colorsItems = listOfColors.map((color)=>{
         return <li><button name={"color"} value={color} onClick={handlePropertyChange} style={{background: color}}></button></li>
-    }) 
+    });
+
     const boardCollection = collection(database, "Boards") 
     async function handleAddBoard(event){
         event.preventDefault();

@@ -2,25 +2,19 @@
 import './index.css';
 import React from "react";
  import { Route, Routes } from "react-router-dom";
- 
-import Home from "./components/Home";
+ import Home from "./components/Home";
 import About from "./components/About";
-import NavBar from "./components/NavBar";
+import TaskList from "./components/TaskList";
+import Team from "./components/Team";
 
 function App() {
   return (
-    <div className="App">
-            <div>
-              <NavBar />
-              <Routes>
-                <Route exact path="/about"/>
-                </Routes>
-                <About />
-                <Routes><Route exact path="/"/></Routes>
-                <Home />
- 
-             </div>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="about" element={<About />} />
+      <Route path="team" element={<Team />} />
+      <Route path="tasklist" element={<TaskList />} />
+    </Routes>
   );
 }
 

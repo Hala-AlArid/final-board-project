@@ -5,6 +5,7 @@ import Header from "./Header"
 import NewBoardForm from "./NewBoardForm"
 import BoardList from "./BoardList"
 import Footer from "./Footer"
+import NavBar from "./NavBar"
 
 function Home() {
     const tmp = collection(database, "test")
@@ -23,6 +24,7 @@ function Home() {
   return (
     <div className="home">
     {/* <button onClick={handleAdd}>Click me to add to firebase!</button> */}
+      <NavBar/>
       <NewBoardForm />
       <BoardList/>
       <Footer/>

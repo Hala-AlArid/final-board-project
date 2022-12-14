@@ -18,7 +18,7 @@ function NavBar() {
           <NavLink to="/about" exact><h4>About</h4></NavLink>
         </li>
         <li>
-          <NavLink to="/" exact><h4>Team</h4></NavLink>
+          <NavLink to="/team" exact><h4>Team</h4></NavLink>
         </li>  
         </ul>
        </div>
