@@ -19,7 +19,7 @@ function BoardList(){
         });
     } 
     const boardsToDisplay = boardList.map((board)=>{
-        return <Board key={board.name} name={board.name} color={board.color}/>
+        return <Board key={board.name} name={board.name} color={board.color} description={board.description}/>
     })
     
     return(
