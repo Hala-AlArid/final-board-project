@@ -39,9 +39,9 @@ function NewBoardForm(){
     }
 
     return(
-        <Form>
+        <Form className="NewBoardForm">
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label><h3>Add New Board</h3></Form.Label>
+          <Form.Label><h3>New Board Info</h3></Form.Label>
           <Form.Control name={'name'} placeholder="Board Name" onChange={handlePropertyChange}/> 
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicEmail">

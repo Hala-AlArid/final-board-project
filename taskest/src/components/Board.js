@@ -13,18 +13,13 @@ function Board({name , color, description }){
           Some quick example text to build on the card title and make up the
             bulk of the card's content.
           </Card.Text>
-        </Card.Body>
-      </Card>
-      )
-    return(
-        <div className="BoardCard" style={{background: color}}>
-            <h2>{name}</h2>
-            <button onClick={async (e)=>{
+          <button onClick={async (e)=>{
                 e.preventDefault();
                 await deleteDoc(doc(database, "Boards",  name )); 
             }}>Delete</button>
-        </div>
-    );
+        </Card.Body>
+      </Card>
+      )
 }
 
 export default Board;

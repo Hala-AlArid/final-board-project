@@ -2,7 +2,7 @@ BoardList{
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 1500px;
+  height: 70%;
 }
 .Home{
   background-color: rgba(220, 227, 233, 0.512);
@@ -13,19 +13,33 @@ BoardList{
 .BoardList{
   display: flex;
   flex-flow: row wrap;
-  justify-content: first baseline;
+  justify-content: center;
   align-content: center;
-  margin: 40px;
+  margin-right: 0px;
   overflow: auto;
   height: 500px;
+  background-color: transparent;
 }
 .BoardCard{
-  margin-bottom: 50px;
+  margin-bottom: 10px;
   margin-left: 25px;
   margin-right: 25px;
+  margin-top: 25px;
   width: 18rem;
 }
-
+body{
+  background: rgb(247,247,247);
+background: linear-gradient(90deg, rgba(247,247,247,0.5301470930168943) 0%, rgba(243,243,255,1) 35%, rgba(195,245,255,1) 100%);
+}
+.NewBoardForm{
+  width: 50%;
+}
+.innerItem{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color:  rgba(198, 205, 255, 0.093);
+}
 /*
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

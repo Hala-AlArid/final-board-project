@@ -3,6 +3,9 @@ import '../styles/BoardList.css'
 import Board from "./Board"
 import database from "../firebase" 
 import { collection, getDocs } from "firebase/firestore";
+import Accordion from 'react-bootstrap/Accordion';
+import { useAccordionButton } from 'react-bootstrap/AccordionButton';
+import Card from 'react-bootstrap/Card';
 const boardCollection = collection(database, "Boards")
 
 function BoardList(){
@@ -16,12 +19,11 @@ function BoardList(){
         });
     } 
     const boardsToDisplay = boardList.map((board)=>{
-        return <Board className="Board" key={board.name} name={board.name} color={board.color}/>
+        return <Board key={board.name} name={board.name} color={board.color}/>
     })
     
     return(
         <>
-        <h1>My boards</h1>
         <div className="BoardList">
             {boardsToDisplay}
         </div>
