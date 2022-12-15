@@ -4,6 +4,7 @@ import {db as firestore, auth} from "../firebase/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { collection, query as fsQuery, where, addDoc,} from "firebase/firestore";
 import { useCollection } from "react-firebase-hooks/firestore";
+import Board from "./Board";
 
 export default function AddBoard(props) {
   
@@ -41,10 +42,12 @@ const AddForm = ({ user }) => {
     e.currentTarget.reset();
     const name = data.get("name");
     const color = data.get("color");
+    const description = data.get("description");
 
     const board = {
       name,
       color,
+      description,
       created_by: user.uid,
       created_at: new Date(),
     };
@@ -63,10 +66,17 @@ const AddForm = ({ user }) => {
       });
   };
 
+  const listOfColors = ["rgb(199, 89, 89)", "rgb(155, 155, 202)", "rgb(100, 146, 100)", "rgb(182, 93, 108)", "rgb(206, 206, 79)"]
+ 
+    const Items = listOfColors.map((color)=>{
+        return <option id={'clr'} name={color} value={color} style={{background: color}}></option>
+    }) 
+
   return (
     <form onSubmit={handleSubmit}>
       <input type="text" placeholder="Board Name" name="name" />
-      <input type="text" placeholder="Board color" name="color" />
+      <select name="color">{Items}</select>
+      <input type="text" placeholder="Board Description" name="description" />
       <button type="submit">Add Board</button>
     </form>
   );
@@ -80,10 +90,6 @@ const BoardList = ({ user }) => {
 
   const navigate = useNavigate();
 
-  function GoToBoard(event){
-    const id = event.target.id;
-    navigate(`/board`);
-  }
 
   const [boards, loading, error] = useCollection(query);
 
@@ -100,23 +106,10 @@ const BoardList = ({ user }) => {
   }
 
   return (
-    <ul>
+    <div>
       {boards.docs.map((doc) => (
-        <li
-          key={doc.id}
-          id={doc.id}
-          onClick = {GoToBoard}
-          style={{
-            margin: 5,
-            padding: 10,
-            cursor: "pointer",
-          }}
-        >
-          <span id={doc.id}>
-            Board Name: {doc.data().name}. color: {doc.data().color}
-          </span>
-        </li>
+        <Board name = {doc.data().name} color={doc.data().color} description={doc.data().description} />
       ))}
-    </ul>
+    </div>
   );
 };
